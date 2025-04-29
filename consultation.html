@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Консультація — VetDiet</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #AEE6F5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff24d;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-group input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    input[type="tel"], input[type="submit"] {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-weight: normal;
+    }
+
+    input[type="submit"] {
+      background-color: #fff24d;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #f1c40f;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    #successMessage {
+      display: none;
+      color: green;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .language-switch {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff24d;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    .language-switch:hover {
+      background-color: #ffe600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Запис на консультацію</h1>
+    <form id="consultationForm" enctype="multipart/form-data">
+      <div>
+        <label>Тварина:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="animalType" value="собака" required> Собака
+          </label>
+          <label>
+            <input type="radio" name="animalType" value="кіт"> Кіт
+          </label>
+        </div>
+        <div class="error" id="animalError"></div>
+      </div>
+
+      <div>
+        <label>Послуга:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="service" value="Консультація" required> Консультація
+          </label>
+          <label>
+            <input type="radio" name="service" value="Індивідуальний підбір комерційного харчування для улюбленця"> Індивідуальний підбір комерційного харчування
+          </label>
+          <label>
+            <input type="radio" name="service" value="Індивідуальний підбір натурального харчування для улюбленця"> Індивідуальний підбір натурального харчування
+          </label>
+        </div>
+        <div class="error" id="serviceError"></div>
+      </div>
+
+      <div>
+        <label for="phone">Номер телефону (у вигляді 380...):</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div class="error" id="phoneError"></div>
+      </div>
+
+      <div>
+        <label>Зручна мережа для спілкування:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="contactMethod" value="Viber" required> Viber
+          </label>
+          <label>
+            <input type="radio" name="contactMethod" value="Telegram"> Telegram
+          </label>
+          <label>
+            <input type="radio" name="contactMethod" value="WhatsApp"> WhatsApp
+          </label>
+        </div>
+        <div class="error" id="contactMethodError"></div>
+      </div>
+
+      <input type="submit" value="Надіслати запит">
+    </form>
+
+    <div id="successMessage">
+      Дякуємо, ми якомога скоріше зв'яжемося з вами через зручний для вас застосунок.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('consultationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const animalType = document.querySelector('input[name="animalType"]:checked');
+      const service = document.querySelector('input[name="service"]:checked');
+      const phone = document.getElementById('phone').value.trim();
+      const contactMethod = document.querySelector('input[name="contactMethod"]:checked');
+      let isValid = true;
+
+      document.getElementById('animalError').textContent = '';
+      document.getElementById('serviceError').textContent = '';
+      document.getElementById('phoneError').textContent = '';
+      document.getElementById('contactMethodError').textContent = '';
+
+      if (!animalType) {
+        document.getElementById('animalError').textContent = 'Будь ласка, оберіть тип тварини.';
+        isValid = false;
+      }
+
+      if (!service) {
+        document.getElementById('serviceError').textContent = 'Будь ласка, оберіть послугу.';
+        isValid = false;
+      }
+
+      if (!phone) {
+        document.getElementById('phoneError').textContent = 'Будь ласка, введіть номер телефону.';
+        isValid = false;
+      }
+
+      if (!contactMethod) {
+        document.getElementById('contactMethodError').textContent = 'Будь ласка, оберіть зручну мережу для спілкування.';
+        isValid = false;
+      }
+
+      if (isValid) {
+        this.reset();
+        document.getElementById('successMessage').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('successMessage').style.display = 'none';
+        }, 4000);
+      }
+    });
+  </script>
+  <a href="consultationeng.html">
+    <button class="language-switch">Eng</button>
+  </a>
+</body>
+</html>

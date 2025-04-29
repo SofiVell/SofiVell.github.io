@@ -1,0 +1,464 @@
+<!DOCTYPE html> 
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VetDiet — Ветеринарний Дієтолог</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #AEE6F5; 
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      background-color: #fff24d;
+      color: white;
+      padding:190px 20px;
+      text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1558929996-da64ba858215?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+    }
+    .header-content {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      max-width: 90%;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.5); 
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #fff24d;
+      z-index: 1;
+    }
+
+    header p {
+      font-size: 2rem;
+      margin-top: 10px;
+      z-index: 1;
+      color: #fff24d;
+    }
+
+    .btn {
+      background-color: #ffffff;
+      color: #fff24d;
+      padding: 20px 32px;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      font-size: 2rem;
+      cursor: pointer;
+      margin-top: 40px;
+      transition: background-color 0.3s ease;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.8)
+    }
+
+    .btn:hover {
+      background-color: white;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about, .services, .reviews, .contact {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .about-content img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .about-content div {
+      flex: 1;
+    }
+
+    h2 {
+      color: #fff24d;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .services ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .services li {
+      background-color: #AEE6F5;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+    }
+
+    .review {
+      background-color: #AEE6F5;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    .review strong {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      text-align: right;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    input[type="submit"] {
+      background-color: #fff24d;
+      color: #333;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ffec3d;
+    }
+
+    .contact-info {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .services-btn {
+      background: transparent;
+      color: #333; 
+      border: 2px solid white;
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-color: white;
+      text-align: left;
+      width: 100%; 
+    }
+
+  .services-btn:hover {
+    background-color: #AEE6F5; 
+    color: #333; 
+    }
+
+  .creator {
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px 20px;
+    text-align: left;
+    font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+    .photo-gallery {
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .photo-gallery h2 {
+      color: #fff24d;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .photo-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .photo-container img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .add-review-btn {
+      background-color: #fff24d; 
+      color: #000000;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: auto; 
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .add-review-btn:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .language-switch {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff24d;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    .language-switch:hover {
+      background-color: #ffe600;
+    }
+    .admin-login {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-top-right {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-top-right">
+    <button class="add-review-btn" onclick="toggleAdminLogin()">Увійти</button>
+    <div id="adminLogin" class="admin-login" style="display:none; margin-top:10px;">
+      <input type="password" id="adminPass" placeholder="Пароль адміністратора">
+      <button class="add-review-btn" style="margin-top:10px;" onclick="loginAdmin()">Підтвердити</button>
+    </div>
+  </div>
+  <header>
+    <div class="header-content">
+      <h1>VetDiet — консультації ветдієтолога з індивідуальним підходом</h1>
+      <p>"Щасливі хвостики починаються зі здорового раціону"</p>
+      <a href="consultation.html">
+        <button class="btn">Записатись на консультацію</button>
+      </a>
+    </div>
+  </header>
+  
+  <section class="about">
+    <h2>Про нас</h2>
+    <div class="about-content">
+      <img src="https://static.tildacdn.info/tild3830-3834-4237-a535-613630396130/image.png" alt="Лікар Білик Оксана Іванівна">
+      <div>
+        <h3>Лікар Білик Оксана Іванівна</h3>
+        <h4>Ветеринарний дієтолог</h4>
+        <p id="aboutText">
+          Лікар Білик — досвідчений ветеринар, який вже понад 10 років дбає про тварин. Вона щиро любить тварин і завжди намагається надавати їм найкращий догляд. Оксана спеціалізується на ветеринарній дієтології і має багато сертифікатів, зокрема диплом ЛНУВМ та БТ ім.С.З.Гжицького, що підтверджує її високий рівень знань.
+        </p>
+        <textarea id="editAboutText" style="display:none; width:100%; height:200px;"></textarea>
+        <button id="saveAboutBtn" style="display:none;">Зберегти</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2>Наші послуги</h2>
+    <ul>
+      <li><button class="btn services-btn" onclick="window.location.href='consultation-service.html'">Консультація (1 год.) - 1000 грн.</button></li>
+      <li><button class="btn services-btn" onclick="window.location.href='commercial-food.html'">Індивідуальний підбір комерційного харчування для улюбленця - 1500 грн.</button></li>
+      <li><button class="btn services-btn" onclick="window.location.href='natural-food.html'">Індивідуальний підбір натурального харчування для улюбленця - 3000 грн.</button></li>
+    </ul>
+  </section>
+
+  <section class="reviews">
+    <h2>Відгуки</h2>
+    <div class="review">
+      "Я дуже вдячна за турботу, яку отримав мій пес в цій клініці. Ветеринар був дуже терплячим і розумів, що мені важливо."
+      <strong>Олена Коваленко</strong>
+    </div>
+    <div class="review">
+      "Я вожу свою кішку сюди вже багато років, і завжди задоволений обслуговуванням. Ветеринар дуже компетентний і завжди знаходить час, щоб все мені пояснити. Я щиро рекомендую цю клініку."
+      <strong>Андрій Литвин</strong>
+    </div>
+    <div class="review">
+      "Я дуже хвилювався за своє цуценя, коли воно захворіло, але ветеринар в цій клініці мене заспокоїв. Вони були дуже співчутливими і турботливими, і моє цуценя тепер знову в нормі."
+      <strong>Наталія Білоус</strong>
+    </div>
+    <div class="review">
+      "Ця клініка просто чудова! Персонал дружній і допомагає, а ветеринар дійсно дбає про добробут тварин. Я б не відвіз своїх домашніх тварин нікуди інше."
+      <strong>Тарас Завгородній</strong>
+    </div>
+
+    <button class="add-review-btn" onclick="showReviewForm()">Додати відгук</button>
+    <form id="reviewForm" style="display:none; margin-top:20px;">
+      <input type="text" id="reviewName" placeholder="Ваше ім’я" required>
+      <textarea id="reviewText" placeholder="Ваш відгук" rows="4" required></textarea>
+      <input type="submit" value="Надіслати">
+    </form>
+  </section>
+    
+  <section class="photo-gallery">
+    <h2>Фотографії задоволених клієнтів</h2>
+    <div class="photo-container">
+      <img src="https://images.unsplash.com/photo-1658164423290-ab829dc0b329?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZyUyMGVhdHxlbnwwfHwwfHx8MA%3D%3D" alt="Фото 1">
+      <img src="https://images.unsplash.com/photo-1616668983570-a971956d8928?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0JTIwZWF0fGVufDB8fDB8fHww" alt="Фото 2">
+      <img src="https://images.unsplash.com/photo-1626544379809-e0031867d50c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhdCUyMGVhdHxlbnwwfHwwfHx8MA%3D%3D" alt="Фото 3">
+      <img src="https://images.unsplash.com/photo-1695023267130-c5bcdfd151d5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Фото 4">
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Контакти</h2>
+    <p class="contact-info">Зв'яжіться з нами, якщо у вас виникнуть питання:</p>
+    <div class="contact-info">
+      <p>+38 050 123 45 67</p>
+      <p>clinichealthypaws@example.com</p>
+      <p>вулиця Саксаганського, 97, Київ, 01032</p>
+    </div>
+    <form>
+      <input type="text" name="name" placeholder="Ваше ім’я" required>
+      <input type="email" name="email" placeholder="Ваш Email" required>
+      <textarea name="message" rows="5" placeholder="Ваше повідомлення або питання" required></textarea>
+      <input type="submit" value="Надіслати">
+    </form>
+  </section>
+
+  <section class="creator" id="creator">
+    <p class="creator">Розробник: Величко Софія, ФІТ 2-11, курс 2, s.velychko_fit_11_23_b_d@knute.edu.ua</p>
+  </section>
+  
+  <script>
+    function showReviewForm() {
+      document.getElementById('reviewForm').style.display = 'block';
+    }
+ 
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('reviewName').value;
+      const text = document.getElementById('reviewText').value;
+  
+      if (name && text) {
+        const reviewSection = document.querySelector('.reviews');
+        const newReview = document.createElement('div');
+        newReview.classList.add('review');
+        newReview.innerHTML = `"${text}"<strong>${name}</strong>`;
+        reviewSection.insertBefore(newReview, this); 
+        this.reset();
+        this.style.display = 'none'; 
+      }
+    });
+  </script>
+  <script>
+    const adminPassword = "admin123"; 
+
+    const aboutText = document.getElementById("aboutText");
+    const editArea = document.getElementById("editAboutText");
+    const saveBtn = document.getElementById("saveAboutBtn");
+
+    const savedText = localStorage.getItem("aboutContent_uk");
+    if (savedText) {
+      aboutText.textContent = savedText;
+    }
+
+    function loginAdmin() {
+      const input = document.getElementById("adminPass").value;
+      if (input === adminPassword) {
+        editArea.value = aboutText.textContent;
+        aboutText.style.display = "none";
+        editArea.style.display = "block";
+        saveBtn.style.display = "inline-block";
+        alert("Вхід успішний. Ви можете редагувати текст.");
+      } else {
+        alert("Неправильний пароль.");
+      }
+    }
+
+    saveBtn.addEventListener("click", function () {
+      const newText = editArea.value;
+      aboutText.textContent = newText;
+      localStorage.setItem("aboutContent_uk", newText);
+      aboutText.style.display = "block";
+      editArea.style.display = "none";
+      saveBtn.style.display = "none";
+      alert("Текст збережено.");
+    });
+  </script>
+  <script>
+    function toggleAdminLogin() {
+      const adminLogin = document.getElementById('adminLogin');
+      if (adminLogin.style.display === 'none' || adminLogin.style.display === '') {
+        adminLogin.style.display = 'block';
+      } else {
+        adminLogin.style.display = 'none';
+      }
+    }
+    </script>
+  <a href="mainpageeng.html">
+    <button class="language-switch">Eng</button>
+  </a>
+</body>
+</html>
