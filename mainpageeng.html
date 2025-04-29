@@ -1,0 +1,115 @@
+<!DOCTYPE html> 
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VetDiet — Veterinary Nutritionist</title>
+  <link rel="stylesheet" href="mainpageeng.css">
+
+</head>
+<body>
+  <div class="login-top-right">
+  <button class="add-review-btn" onclick="toggleAdminLogin()">Sign in</button>
+  <div id="adminLogin" class="admin-login" style="display:none; margin-top:10px;">
+    <input type="password" id="adminPass" placeholder="Administrator password">
+    <button class="add-review-btn" style="margin-top:10px;" onclick="loginAdmin()">Confirm</button>
+  </div>
+</div>
+  <header>
+    <div class="header-content">
+      <h1>VetDiet — consultations of a veterinary nutritionist with an individual approach</h1>
+      <p>"Happy tails start with a healthy diet"</p>
+      <a href="consultationeng.html">
+        <button class="btn">Sign up for a consultation</button>
+      </a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About us</h2>
+    <div class="about-content">
+      <img src="https://static.tildacdn.info/tild3830-3834-4237-a535-613630396130/image.png" alt="Doctor Bilyk Oksana Ivanivna">
+      <div>
+        <h3>Doctor Bilyk Oksana Ivanivna</h3>
+        <h4>Veterinary nutritionist</h4>
+        <p id="aboutText">
+          Doctor Bilyk is an experienced veterinarian who has been taking care of animals for over 10 years. She sincerely loves animals and always tries to provide them with the best care. Oksana specializes in veterinary nutrition and has many certificates, including a diploma from the Lviv National University of Veterinary Medicine and the S.Z. Gzhytskyi Veterinary Medical University, which confirms her high level of knowledge.
+        </p>
+        <textarea id="editAboutText" style="display:none; width:100%; height:200px;"></textarea>
+        <button id="saveAboutBtn" style="display:none;">Save</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2>Our services</h2>
+    <ul>
+      <li><button class="btn services-btn" onclick="window.location.href='consultation-serviceeng.html'">Consultation (1 hour) - 1000 UAH.</button></li>
+      <li><button class="btn services-btn" onclick="window.location.href='commercial-foodeng.html'">Individual selection of commercial food for your pet - 1500 UAH.</button></li>
+      <li><button class="btn services-btn" onclick="window.location.href='natural-foodeng.html'">Individual selection of natural food for your pet - 3000 UAH.</button></li>
+    </ul>
+  </section>
+
+  <section class="reviews">
+    <h2>Reviews</h2>
+    <div class="review">
+      "I am very grateful for the care my dog ​​received at this clinic. The vet was very patient and understood what was important to me."
+      <strong>Olena Kovalenko</strong>
+    </div>
+    <div class="review">
+      "I have been taking my cat here for many years and have always been satisfied with the service. The vet is very competent and always takes the time to explain everything to me. I highly recommend this clinic."
+      <strong>Andriy Litvin</strong>
+    </div>
+    <div class="review">
+      "I was very worried about my puppy when he got sick, but the vet at this clinic put me at ease. They were very compassionate and caring, and my puppy is now back to normal."
+      <strong>Natalia Bilous</strong>
+    </div>
+    <div class="review">
+      "This clinic is simply wonderful! The staff is friendly and helpful, and the vet really cares about the animals' well-being. I wouldn't take my pets anywhere else."
+      <strong>Taras Zavgorodny</strong>
+    </div>
+
+    <button class="add-review-btn" onclick="showReviewForm()">Add Review</button>
+    <form id="reviewForm" style="display:none; margin-top:20px;">
+      <input type="text" id="reviewName" placeholder="Your Name" required>
+      <textarea id="reviewText" placeholder="Your Review" rows="4" required></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+    
+  <section class="photo-gallery">
+    <h2>Photos of satisfied customers</h2>
+    <div class="photo-container">
+      <img src="https://images.unsplash.com/photo-1658164423290-ab829dc0b329?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZyUyMGVhdHxlbnwwfHwwfHx8MA%3D%3D" alt="Photo 1">
+      <img src="https://images.unsplash.com/photo-1616668983570-a971956d8928?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0JTIwZWF0fGVufDB8fDB8fHww" alt="Photo 2">
+      <img src="https://images.unsplash.com/photo-1626544379809-e0031867d50c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhdCUyMGVhdHxlbnwwfHwwfHx8MA%3D%3D" alt="Photo 3">
+      <img src="https://images.unsplash.com/photo-1695023267130-c5bcdfd151d5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photo 4">
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contacts</h2>
+    <p class="contact-info">Contact us if you have any questions:</p>
+    <div class="contact-info">
+      <p>+38 050 123 45 67</p>
+      <p>clinichealthypaws@example.com</p>
+      <p>97 Saksaganskoho St., Kyiv, 01032</p>
+    </div>
+    <form>
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your message or question" required></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <section class="creator" id="creator">
+    <p class="creator">Developer: Sofia Velychko, FIT 2-11, course 2, s.velychko_fit_11_23_b_d@knute.edu.ua</p>
+  </section>
+  <script src="mainpageeng.js"></script>
+
+  <a href="mainpage.html">
+    <button class="language-switch">Укр</button>
+  </a>
+</body>
+</html>

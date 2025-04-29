@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consultation — VetDiet</title>
+  <link rel="stylesheet" href="consultationeng.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Appointment for consultation</h1>
+    <form id="consultationForm" enctype="multipart/form-data">
+      <div>
+        <label>Animal:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="animalType" value="dog" required> Dog
+          </label>
+          <label>
+            <input type="radio" name="animalType" value="cat"> Cat
+          </label>
+        </div>
+        <div class="error" id="animalError"></div>
+      </div>
+
+      <div>
+        <label>Service:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="service" value="Consultation" required> Consultation
+          </label>
+          <label>
+            <input type="radio" name="service" value="Individual selection of commercial food for your pet"> Individual selection of commercial food
+          </label>
+          <label>
+            <input type="radio" name="service" value="Individual selection of natural food for your pet"> Individual selection of natural food
+          </label>
+        </div>
+        <div class="error" id="serviceError"></div>
+      </div>
+
+      <div>
+        <label for="phone">Phone number (in the form of 380...):</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div class="error" id="phoneError"></div>
+      </div>
+
+      <div>
+        <label>A convenient network for communication:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="contactMethod" value="Viber" required> Viber
+          </label>
+          <label>
+            <input type="radio" name="contactMethod" value="Telegram"> Telegram
+          </label>
+          <label>
+            <input type="radio" name="contactMethod" value="WhatsApp"> WhatsApp
+          </label>
+        </div>
+        <div class="error" id="contactMethodError"></div>
+      </div>
+
+      <input type="submit" value="Send request">
+    </form>
+
+    <div id="successMessage">
+        Thank you, we will contact you as soon as possible through your preferred app.
+    </div>
+  </div>
+
+  <script src="consultationeng.js"></script>
+  <a href="consultation.html">
+    <button class="language-switch">Укр</button>
+  </a>
+</body>
+</html>

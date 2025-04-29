@@ -1,0 +1,97 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #AEE6F5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #fff24d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="tel"], input[type="submit"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-weight: normal;
+}
+
+input[type="submit"] {
+    background-color: #fff24d;
+    color: black;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #f1c40f;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+#successMessage {
+    display: none;
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+}
+.language-switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff24d;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    z-index: 999;
+}
+
+.language-switch:hover {
+    background-color: #ffe600;
+}
