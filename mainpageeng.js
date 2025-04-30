@@ -36,6 +36,7 @@ function loginAdmin() {
     aboutText.style.display = "none";
     editArea.style.display = "block";
     saveBtn.style.display = "inline-block";
+    document.getElementById("adminLogin").style.display = "none";
     alert("Login successful. You can edit the text.");
     } else {
     alert("Incorrect password.");
