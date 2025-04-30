@@ -42,7 +42,7 @@ header h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .service-details h2 {
-    color: #fff24d;
+    color: black;
 }
 .back-btn {
     display: block;
