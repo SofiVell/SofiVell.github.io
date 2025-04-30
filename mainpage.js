@@ -35,6 +35,7 @@ function loginAdmin() {
     aboutText.style.display = "none";
     editArea.style.display = "block";
     saveBtn.style.display = "inline-block";
+    document.getElementById("adminLogin").style.display = "none";
     alert("Вхід успішний. Ви можете редагувати текст.");
   } else {
     alert("Невірний пароль.");
